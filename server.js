@@ -6,8 +6,10 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
+//import all routes
 app.use(require('./routes'));
 
+//connect with mongodb
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/social-api', {
     useFindAndModify: false,
     useNewUrlParser: true,
